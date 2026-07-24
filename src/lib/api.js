@@ -1,7 +1,7 @@
 import { authState } from './stores/auth.svelte.js';
 
-// Base API URL config. Can fall back to relative path if proxied, or point to Bun backend.
-const BASE_URL = 'http://localhost:3000/api';
+// Base API URL — from env or fallback to dev default
+const BASE_URL = typeof import.meta !== 'undefined' && import.meta.env?.VITE_API_URL || 'http://localhost:3000/api';
 
 /**
  * Builds the request URL by prepending the BASE_URL (if relative path is supplied) 
